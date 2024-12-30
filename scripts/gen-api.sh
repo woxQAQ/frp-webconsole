@@ -30,7 +30,10 @@ output-options:
 EOF
     echo "Generating code for tag: $tag"
     mkdir -p "pkg/controller/${tag}"
-    oapi-codegen -config "api/${tag}/oapi-codegen.yaml" api/openapi_bundle.yaml
+    go run gen.go \
+    -f api/openapi_bundle.yaml \
+    -o pkg/controller/${tag}/gen.go \
+    -c api/${tag}/oapi-codegen.yaml
     rm -rf api/${tag}
 done
 

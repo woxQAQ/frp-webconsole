@@ -2,9 +2,9 @@ API_DIR = api
 
 .PHONY: swag
 swag:
-	@which swag || go install github.com/swaggo/swag/cmd/swag@latest
-	@which openapi-generator || go install github.com/deepmap/oapi-codegen/v2/cmd/oapi-codegen@v2.2.0
-	@which swagger2openapi || npm install -g swagger2openapi
+	@type -p swag || go install github.com/swaggo/swag/cmd/swag@latest
+	@type -p openapi-generator || go install github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen@latest
+	@type -p swagger2openapi || npm install -g swagger2openapi
 
 .PHONY: api
 api: swag

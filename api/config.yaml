@@ -1,0 +1,5 @@
+package: frp
+output: api/server.gen.go
+output-options:
+  user-templates:
+    - api/templates/controller.tpl

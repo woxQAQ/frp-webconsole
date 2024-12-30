@@ -10,7 +10,7 @@ func NewFrpController() *FrpControllerTemplate {
 	return &FrpControllerTemplate{}
 }
 
-func (f *FrpControllerTemplate) Register(engine *gin.Engine) {
+func (f *FrpControllerTemplate) Register(engine *gin.RouterGroup) {
 	engine.GET("/frp/config", f.GetFrpcConfig)
 	engine.POST("/frp/install", f.InstallFrpc)
 }

@@ -1,0 +1,79 @@
+openapi: 3.0.0
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license:
+    name: MIT
+    url: https://github.com/go-frp/frp-manager/blob/main/LICENSE
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /frp/config:
+    get:
+      description: Get Frpc Config
+      responses:
+        "200":
+          description: OK
+      summary: Get Frpc Config
+      tags:
+        - frp
+  /frp/install:
+    post:
+      description: Install Frpc
+      responses:
+        "200":
+          description: OK
+      summary: Install Frpc
+      tags:
+        - frp
+  /frp/release:
+    get:
+      description: List Frp Release
+      parameters:
+        - description: page
+          in: query
+          name: page
+          schema:
+            type: integer
+        - description: pageSize
+          in: query
+          name: pageSize
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/models.System"
+        description: SystemInfo
+        required: true
+      responses:
+        "200":
+          description: OK
+      summary: List Frp Release
+      tags:
+        - frp
+servers:
+  - url: //localhost:8080/api/v1
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    models.System:
+      description: the system info
+      properties:
+        arch:
+          type: string
+        os:
+          type: string
+      type: object
+

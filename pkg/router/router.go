@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/woxQAQ/frp-webconsole/pkg/controller"
 )
 
 type Router struct {
@@ -11,12 +12,7 @@ type Router struct {
 func NewRouter(engine *gin.Engine) *Router {
 	return &Router{engine: engine}
 }
-
-type Controller interface {
-	Register(engine *gin.Engine)
-}
-
-func (r *Router) Register(controllers ...Controller) {
+func (r *Router) Register(controllers ...controller.Controller) {
 	for _, controller := range controllers {
 		controller.Register(r.engine)
 	}

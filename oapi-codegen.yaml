@@ -1,0 +1,6 @@
+package: controller
+generate:
+  types: true
+  gin: true
+exclude-schemas:
+  - System

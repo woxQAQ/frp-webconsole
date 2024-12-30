@@ -11,15 +11,17 @@ type GithubClient interface {
 }
 
 type githubClient struct {
+	ghClient *github.Client
 }
 
-func NewGithubClient() GithubClient {
-	return &githubClient{}
+func NewGithubClient(ghClient *github.Client) GithubClient {
+	return &githubClient{
+		ghClient: ghClient,
+	}
 }
 
 func (c *githubClient) GetReleaseList(ctx context.Context, owner, repo string) ([]*github.RepositoryRelease, error) {
-	cli := github.NewClient(nil)
-	releases, _, err := cli.Repositories.ListReleases(ctx, owner, repo, &github.ListOptions{
+	releases, _, err := c.ghClient.Repositories.ListReleases(ctx, owner, repo, &github.ListOptions{
 		Page:    1,
 		PerPage: 20,
 	})

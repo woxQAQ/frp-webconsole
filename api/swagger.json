@@ -31,6 +31,7 @@
                     "frp"
                 ],
                 "summary": "Get Frpc Config",
+                "operationId": "GetFrpcConfig",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -51,6 +52,7 @@
                     "frp"
                 ],
                 "summary": "Install Frpc",
+                "operationId": "InstallFrpc",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -71,6 +73,7 @@
                     "frp"
                 ],
                 "summary": "List Frp Release",
+                "operationId": "ListFrpRelease",
                 "parameters": [
                     {
                         "type": "integer",

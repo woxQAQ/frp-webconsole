@@ -37,6 +37,7 @@ const docTemplate = `{
                     "frp"
                 ],
                 "summary": "Get Frpc Config",
+                "operationId": "GetFrpcConfig",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -57,6 +58,7 @@ const docTemplate = `{
                     "frp"
                 ],
                 "summary": "Install Frpc",
+                "operationId": "InstallFrpc",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -77,6 +79,7 @@ const docTemplate = `{
                     "frp"
                 ],
                 "summary": "List Frp Release",
+                "operationId": "ListFrpRelease",
                 "parameters": [
                     {
                         "type": "integer",

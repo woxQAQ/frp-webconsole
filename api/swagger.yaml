@@ -30,6 +30,7 @@ paths:
       consumes:
       - application/json
       description: Get Frpc Config
+      operationId: GetFrpcConfig
       produces:
       - application/json
       responses:
@@ -43,6 +44,7 @@ paths:
       consumes:
       - application/json
       description: Install Frpc
+      operationId: InstallFrpc
       produces:
       - application/json
       responses:
@@ -56,6 +58,7 @@ paths:
       consumes:
       - application/json
       description: List Frp Release
+      operationId: ListFrpRelease
       parameters:
       - description: page
         in: query

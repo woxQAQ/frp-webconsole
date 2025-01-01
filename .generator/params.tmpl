@@ -1,0 +1,8 @@
+{{- $opid := .OperationId -}}
+type {{ $opid }}Param struct {
+    {{ range .Parameters -}}
+    {{- range .Value -}}
+	{{ .Name }} {{ .Type }}
+    {{- end -}}
+    {{end}}
+}

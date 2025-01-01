@@ -3,8 +3,6 @@ API_DIR = api
 .PHONY: swag
 swag:
 	@type -p swag || go install github.com/swaggo/swag/cmd/swag@latest
-	@type -p openapi-generator || go install github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen@latest
-	@type -p swagger2openapi || npm install -g swagger2openapi
 
 .PHONY: api
 api: swag
@@ -14,6 +12,12 @@ api: swag
 fmt:
 	go fmt ./...
 	go vet ./...
+	swag fmt
+
+.PHONY: module
+module:
+	go mod tidy --compat=1.23
+	go mod verify
 
 .PHONY: run
 run: fmt

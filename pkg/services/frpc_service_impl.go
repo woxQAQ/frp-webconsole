@@ -25,7 +25,7 @@ func (s *FrpcServiceImpl) InstallFrpc(ctx context.Context) error {
 	return nil
 }
 
-func (s *FrpcServiceImpl) ListFrpRelease(ctx context.Context, system models.System) ([]models.FrpRelease, error) {
+func (s *FrpcServiceImpl) ListFrpRelease(ctx context.Context, page, pageSize int, system models.System) ([]models.FrpRelease, error) {
 	releases, err := s.ghStore.GetReleaseList(ctx, types.FrpOwner, types.FrpRepo)
 	if err != nil {
 		return nil, err

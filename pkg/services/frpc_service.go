@@ -9,5 +9,5 @@ import (
 type FrpcService interface {
 	GetFrpcConfig(ctx context.Context) (string, error)
 	InstallFrpc(ctx context.Context) error
-	ListFrpRelease(ctx context.Context) ([]models.FrpRelease, error)
+	ListFrpRelease(ctx context.Context, page, pageSize int, system models.System) ([]models.FrpRelease, error)
 }

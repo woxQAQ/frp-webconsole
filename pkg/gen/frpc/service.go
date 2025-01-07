@@ -33,7 +33,7 @@ const ServiceName = "frpc"
 // MethodKey key.
 var MethodNames = [1]string{"ListFrpRelease"}
 
-// A bottle of wine
+// A asset of frp release
 type FrpAsset struct {
 	// Name of asset
 	Name *string
@@ -45,7 +45,7 @@ type FrpAsset struct {
 	Downloads *int
 }
 
-// A bottle of wine
+// A release of frp
 type FrpRelease struct {
 	// Tag name of release
 	TagName *string

@@ -3,7 +3,7 @@ info:
     title: FRP Webconsole
     description: FRP Webconsole
     license:
-        name: ""
+        name: MIT
         url: https://github.com/woxQAQ/frp-webconsole/blob/main/LICENSE
     version: 1.0.0
 servers:
@@ -23,8 +23,8 @@ paths:
                   schema:
                     type: string
                     description: OS
-                    example: Voluptates molestiae rem.
-                  example: Eum est animi corporis.
+                    example: Provident sed est.
+                  example: Dolor et.
                 - name: arch
                   in: query
                   description: Architecture
@@ -32,8 +32,8 @@ paths:
                   schema:
                     type: string
                     description: Architecture
-                    example: Odio fugit error delectus expedita id minima.
-                  example: Aut eos aperiam qui inventore et velit.
+                    example: Voluptatem eius odio.
+                  example: Quidem necessitatibus itaque.
             responses:
                 "200":
                     description: OK response.
@@ -45,139 +45,61 @@ paths:
                                     $ref: '#/components/schemas/FrpRelease'
                                 example:
                                     - assets:
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                      created_at: "1971-02-16T23:50:01Z"
-                                      tag_name: Qui enim eos dolorem aut aspernatur.
+                                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                          downloads: 100
+                                          name: frp_0.55.0_linux_arm64.tar.gz
+                                          size: 1024
+                                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                          downloads: 100
+                                          name: frp_0.55.0_linux_arm64.tar.gz
+                                          size: 1024
+                                      created_at: "2008-12-17T04:56:17Z"
+                                      tag_name: v0.55.0
                                     - assets:
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                      created_at: "1971-02-16T23:50:01Z"
-                                      tag_name: Qui enim eos dolorem aut aspernatur.
-                                    - assets:
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                        - download_url: Aut eaque molestiae provident aliquid quas.
-                                          downloads: 8770147874870753106
-                                          name: Quae dolorem.
-                                          size: 8270638503018380066
-                                      created_at: "1971-02-16T23:50:01Z"
-                                      tag_name: Qui enim eos dolorem aut aspernatur.
+                                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                          downloads: 100
+                                          name: frp_0.55.0_linux_arm64.tar.gz
+                                          size: 1024
+                                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                          downloads: 100
+                                          name: frp_0.55.0_linux_arm64.tar.gz
+                                          size: 1024
+                                      created_at: "2008-12-17T04:56:17Z"
+                                      tag_name: v0.55.0
                             example:
                                 - assets:
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                  created_at: "1971-02-16T23:50:01Z"
-                                  tag_name: Qui enim eos dolorem aut aspernatur.
+                                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                      downloads: 100
+                                      name: frp_0.55.0_linux_arm64.tar.gz
+                                      size: 1024
+                                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                      downloads: 100
+                                      name: frp_0.55.0_linux_arm64.tar.gz
+                                      size: 1024
+                                  created_at: "2008-12-17T04:56:17Z"
+                                  tag_name: v0.55.0
                                 - assets:
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                  created_at: "1971-02-16T23:50:01Z"
-                                  tag_name: Qui enim eos dolorem aut aspernatur.
+                                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                      downloads: 100
+                                      name: frp_0.55.0_linux_arm64.tar.gz
+                                      size: 1024
+                                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                      downloads: 100
+                                      name: frp_0.55.0_linux_arm64.tar.gz
+                                      size: 1024
+                                  created_at: "2008-12-17T04:56:17Z"
+                                  tag_name: v0.55.0
                                 - assets:
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                  created_at: "1971-02-16T23:50:01Z"
-                                  tag_name: Qui enim eos dolorem aut aspernatur.
-                                - assets:
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                    - download_url: Aut eaque molestiae provident aliquid quas.
-                                      downloads: 8770147874870753106
-                                      name: Quae dolorem.
-                                      size: 8270638503018380066
-                                  created_at: "1971-02-16T23:50:01Z"
-                                  tag_name: Qui enim eos dolorem aut aspernatur.
+                                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                      downloads: 100
+                                      name: frp_0.55.0_linux_arm64.tar.gz
+                                      size: 1024
+                                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                                      downloads: 100
+                                      name: frp_0.55.0_linux_arm64.tar.gz
+                                      size: 1024
+                                  created_at: "2008-12-17T04:56:17Z"
+                                  tag_name: v0.55.0
 components:
     schemas:
         FrpAsset:
@@ -186,27 +108,27 @@ components:
                 download_url:
                     type: string
                     description: Download URL of asset
-                    example: Hic ipsum sit consequatur non.
+                    example: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
                 downloads:
                     type: integer
                     description: Downloads of asset
-                    example: 3764099051968099425
+                    example: 100
                     format: int64
                 name:
                     type: string
                     description: Name of asset
-                    example: Maiores non eum magnam.
+                    example: frp_0.55.0_linux_arm64.tar.gz
                 size:
                     type: integer
                     description: Size of asset
-                    example: 3087138182778772273
+                    example: 1024
                     format: int64
-            description: A bottle of wine
+            description: A asset of frp release
             example:
-                download_url: Recusandae similique voluptatem consectetur a ratione.
-                downloads: 2818006465522405624
-                name: Odit quo.
-                size: 6740327357539237701
+                download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                downloads: 100
+                name: frp_0.55.0_linux_arm64.tar.gz
+                size: 1024
         FrpRelease:
             type: object
             properties:
@@ -216,44 +138,48 @@ components:
                         $ref: '#/components/schemas/FrpAsset'
                     description: Assets of release
                     example:
-                        - download_url: Deserunt reiciendis.
-                          downloads: 4496654687239626761
-                          name: Sapiente voluptas dolorem veniam ex quia.
-                          size: 901917302157227216
-                        - download_url: Deserunt reiciendis.
-                          downloads: 4496654687239626761
-                          name: Sapiente voluptas dolorem veniam ex quia.
-                          size: 901917302157227216
+                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                          downloads: 100
+                          name: frp_0.55.0_linux_arm64.tar.gz
+                          size: 1024
+                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                          downloads: 100
+                          name: frp_0.55.0_linux_arm64.tar.gz
+                          size: 1024
+                        - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                          downloads: 100
+                          name: frp_0.55.0_linux_arm64.tar.gz
+                          size: 1024
                 created_at:
                     type: string
                     description: Created at
-                    example: "1988-03-04T07:24:59Z"
+                    example: "1987-03-27T01:30:27Z"
                     format: date-time
                 tag_name:
                     type: string
                     description: Tag name of release
-                    example: Enim dolorem minus molestiae temporibus et earum.
-            description: A bottle of wine
+                    example: v0.55.0
+            description: A release of frp
             example:
                 assets:
-                    - download_url: Deserunt reiciendis.
-                      downloads: 4496654687239626761
-                      name: Sapiente voluptas dolorem veniam ex quia.
-                      size: 901917302157227216
-                    - download_url: Deserunt reiciendis.
-                      downloads: 4496654687239626761
-                      name: Sapiente voluptas dolorem veniam ex quia.
-                      size: 901917302157227216
-                    - download_url: Deserunt reiciendis.
-                      downloads: 4496654687239626761
-                      name: Sapiente voluptas dolorem veniam ex quia.
-                      size: 901917302157227216
-                    - download_url: Deserunt reiciendis.
-                      downloads: 4496654687239626761
-                      name: Sapiente voluptas dolorem veniam ex quia.
-                      size: 901917302157227216
-                created_at: "1996-06-25T02:04:04Z"
-                tag_name: Omnis nihil sit quaerat enim.
+                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                      downloads: 100
+                      name: frp_0.55.0_linux_arm64.tar.gz
+                      size: 1024
+                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                      downloads: 100
+                      name: frp_0.55.0_linux_arm64.tar.gz
+                      size: 1024
+                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                      downloads: 100
+                      name: frp_0.55.0_linux_arm64.tar.gz
+                      size: 1024
+                    - download_url: https://github.com/fatedier/frp/releases/download/v0.55.0/frp_0.55.0_linux_arm64.tar.gz
+                      downloads: 100
+                      name: frp_0.55.0_linux_arm64.tar.gz
+                      size: 1024
+                created_at: "2002-10-05T17:52:52Z"
+                tag_name: v0.55.0
 tags:
     - name: frpc
       description: FRP Webconsole

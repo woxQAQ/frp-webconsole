@@ -19,6 +19,7 @@ var _ = API("frp-webconsole", func() {
 	})
 	Error("Unauthorized")
 	License(func() {
+		Name("MIT")
 		URL("https://github.com/woxQAQ/frp-webconsole/blob/main/LICENSE")
 	})
 	Version("1.0.0")

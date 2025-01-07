@@ -1,7 +1,9 @@
 package log
 
 import (
+	"log"
 	"os"
+	"runtime/debug"
 	"sync"
 
 	"go.uber.org/zap"
@@ -13,7 +15,7 @@ var (
 	once   sync.Once
 )
 
-func Logger() *zap.Logger {
+func init() {
 	once.Do(func() {
 		fileEncoder := zapcore.NewJSONEncoder(zap.NewProductionEncoderConfig())
 		stdOutEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
@@ -39,5 +41,20 @@ func Logger() *zap.Logger {
 		}
 		logger = zap.New(core, zap.AddCallerSkip(1))
 	})
+}
+
+func Logger() *zap.Logger {
+	if logger == nil {
+		debug.PrintStack()
+		panic("logger not initialized correctly")
+	}
 	return logger
+}
+
+func NewStdLogger() *log.Logger {
+	if logger == nil {
+		debug.PrintStack()
+		panic("logger not initialized correctly")
+	}
+	return zap.NewStdLog(logger)
 }

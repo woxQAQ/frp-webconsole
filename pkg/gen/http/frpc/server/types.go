@@ -13,19 +13,20 @@ import (
 
 // ListFrpReleaseResponseBody is the type of the "frpc" service
 // "ListFrpRelease" endpoint HTTP response body.
-type ListFrpReleaseResponseBody struct {
+type ListFrpReleaseResponseBody []*FrpReleaseResponse
+
+// FrpReleaseResponse is used to define fields on response body types.
+type FrpReleaseResponse struct {
 	// Tag name of release
 	TagName *string `form:"tag_name,omitempty" json:"tag_name,omitempty" xml:"tag_name,omitempty"`
-	// Size of release
-	Size *int `form:"size,omitempty" json:"size,omitempty" xml:"size,omitempty"`
 	// Assets of release
-	Assets *FrpAssetResponseBody `form:"assets,omitempty" json:"assets,omitempty" xml:"assets,omitempty"`
+	Assets []*FrpAssetResponse `form:"assets,omitempty" json:"assets,omitempty" xml:"assets,omitempty"`
 	// Created at
 	CreatedAt *string `form:"created_at,omitempty" json:"created_at,omitempty" xml:"created_at,omitempty"`
 }
 
-// FrpAssetResponseBody is used to define fields on response body types.
-type FrpAssetResponseBody struct {
+// FrpAssetResponse is used to define fields on response body types.
+type FrpAssetResponse struct {
 	// Name of asset
 	Name *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// Download URL of asset
@@ -38,14 +39,10 @@ type FrpAssetResponseBody struct {
 
 // NewListFrpReleaseResponseBody builds the HTTP response body from the result
 // of the "ListFrpRelease" endpoint of the "frpc" service.
-func NewListFrpReleaseResponseBody(res *frpc.FrpRelease) *ListFrpReleaseResponseBody {
-	body := &ListFrpReleaseResponseBody{
-		TagName:   res.TagName,
-		Size:      res.Size,
-		CreatedAt: res.CreatedAt,
-	}
-	if res.Assets != nil {
-		body.Assets = marshalFrpcFrpAssetToFrpAssetResponseBody(res.Assets)
+func NewListFrpReleaseResponseBody(res []*frpc.FrpRelease) ListFrpReleaseResponseBody {
+	body := make([]*FrpReleaseResponse, len(res))
+	for i, val := range res {
+		body[i] = marshalFrpcFrpReleaseToFrpReleaseResponse(val)
 	}
 	return body
 }

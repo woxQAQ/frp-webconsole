@@ -23,8 +23,8 @@ paths:
                   schema:
                     type: string
                     description: OS
-                    example: Aliquid animi id repellat.
-                  example: Vel itaque magnam ut.
+                    example: Voluptates molestiae rem.
+                  example: Eum est animi corporis.
                 - name: arch
                   in: query
                   description: Architecture
@@ -32,24 +32,152 @@ paths:
                   schema:
                     type: string
                     description: Architecture
-                    example: Qui explicabo illo odio voluptates molestiae.
-                  example: Deleniti eum.
+                    example: Odio fugit error delectus expedita id minima.
+                  example: Aut eos aperiam qui inventore et velit.
             responses:
                 "200":
                     description: OK response.
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/FrpRelease'
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/FrpRelease'
+                                example:
+                                    - assets:
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                      created_at: "1971-02-16T23:50:01Z"
+                                      tag_name: Qui enim eos dolorem aut aspernatur.
+                                    - assets:
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                      created_at: "1971-02-16T23:50:01Z"
+                                      tag_name: Qui enim eos dolorem aut aspernatur.
+                                    - assets:
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                        - download_url: Aut eaque molestiae provident aliquid quas.
+                                          downloads: 8770147874870753106
+                                          name: Quae dolorem.
+                                          size: 8270638503018380066
+                                      created_at: "1971-02-16T23:50:01Z"
+                                      tag_name: Qui enim eos dolorem aut aspernatur.
                             example:
-                                assets:
-                                    download_url: Dolorem aut aspernatur.
-                                    downloads: 972333842232694562
-                                    name: Non occaecati facere fugit qui enim.
-                                    size: 6647636507034451376
-                                created_at: "1971-02-16T23:50:01Z"
-                                size: 7611772498325649021
-                                tag_name: Dolorem mollitia aut eaque molestiae provident aliquid.
+                                - assets:
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                  created_at: "1971-02-16T23:50:01Z"
+                                  tag_name: Qui enim eos dolorem aut aspernatur.
+                                - assets:
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                  created_at: "1971-02-16T23:50:01Z"
+                                  tag_name: Qui enim eos dolorem aut aspernatur.
+                                - assets:
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                  created_at: "1971-02-16T23:50:01Z"
+                                  tag_name: Qui enim eos dolorem aut aspernatur.
+                                - assets:
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                    - download_url: Aut eaque molestiae provident aliquid quas.
+                                      downloads: 8770147874870753106
+                                      name: Quae dolorem.
+                                      size: 8270638503018380066
+                                  created_at: "1971-02-16T23:50:01Z"
+                                  tag_name: Qui enim eos dolorem aut aspernatur.
 components:
     schemas:
         FrpAsset:
@@ -58,56 +186,74 @@ components:
                 download_url:
                     type: string
                     description: Download URL of asset
-                    example: Eum magnam voluptas hic ipsum.
+                    example: Hic ipsum sit consequatur non.
                 downloads:
                     type: integer
                     description: Downloads of asset
-                    example: 9117719764608767615
+                    example: 3764099051968099425
                     format: int64
                 name:
                     type: string
                     description: Name of asset
-                    example: Dolor maiores.
+                    example: Maiores non eum magnam.
                 size:
                     type: integer
                     description: Size of asset
-                    example: 7775041397615832255
+                    example: 3087138182778772273
                     format: int64
             description: A bottle of wine
             example:
-                download_url: Odit quo.
-                downloads: 488818421683686422
-                name: Sequi aspernatur.
-                size: 5010214001184246337
+                download_url: Recusandae similique voluptatem consectetur a ratione.
+                downloads: 2818006465522405624
+                name: Odit quo.
+                size: 6740327357539237701
         FrpRelease:
             type: object
             properties:
                 assets:
-                    $ref: '#/components/schemas/FrpAsset'
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/FrpAsset'
+                    description: Assets of release
+                    example:
+                        - download_url: Deserunt reiciendis.
+                          downloads: 4496654687239626761
+                          name: Sapiente voluptas dolorem veniam ex quia.
+                          size: 901917302157227216
+                        - download_url: Deserunt reiciendis.
+                          downloads: 4496654687239626761
+                          name: Sapiente voluptas dolorem veniam ex quia.
+                          size: 901917302157227216
                 created_at:
                     type: string
                     description: Created at
-                    example: "1984-02-29T11:52:49Z"
+                    example: "1988-03-04T07:24:59Z"
                     format: date-time
-                size:
-                    type: integer
-                    description: Size of release
-                    example: 9065662459211588671
-                    format: int64
                 tag_name:
                     type: string
                     description: Tag name of release
-                    example: Voluptatem consectetur.
+                    example: Enim dolorem minus molestiae temporibus et earum.
             description: A bottle of wine
             example:
                 assets:
-                    download_url: Voluptas dolorem veniam ex.
-                    downloads: 4567464066128915160
-                    name: Facere amet voluptate ea.
-                    size: 6112617211418139169
-                created_at: "1996-04-26T15:52:28Z"
-                size: 9049276949846730829
-                tag_name: Officiis fugit.
+                    - download_url: Deserunt reiciendis.
+                      downloads: 4496654687239626761
+                      name: Sapiente voluptas dolorem veniam ex quia.
+                      size: 901917302157227216
+                    - download_url: Deserunt reiciendis.
+                      downloads: 4496654687239626761
+                      name: Sapiente voluptas dolorem veniam ex quia.
+                      size: 901917302157227216
+                    - download_url: Deserunt reiciendis.
+                      downloads: 4496654687239626761
+                      name: Sapiente voluptas dolorem veniam ex quia.
+                      size: 901917302157227216
+                    - download_url: Deserunt reiciendis.
+                      downloads: 4496654687239626761
+                      name: Sapiente voluptas dolorem veniam ex quia.
+                      size: 901917302157227216
+                created_at: "1996-06-25T02:04:04Z"
+                tag_name: Omnis nihil sit quaerat enim.
 tags:
     - name: frpc
       description: FRP Webconsole

@@ -7,8 +7,7 @@ import (
 var FrpRelease = Type("FrpRelease", func() {
 	Description("A bottle of wine")
 	Attribute("tag_name", String, "Tag name of release")
-	Attribute("size", Int, "Size of release")
-	Attribute("assets", FrpAsset, "Assets of release")
+	Attribute("assets", ArrayOf(FrpAsset), "Assets of release")
 	TypeTimeFormat("created_at", "Created at")
 })
 
@@ -28,7 +27,7 @@ var _ = Service("frpc", func() {
 			Attribute("os", String)
 			Attribute("arch", String)
 		})
-		Result(FrpRelease)
+		Result(ArrayOf(FrpRelease))
 		HTTP(func() {
 			Params(func() {
 				Param("os", String, "OS")

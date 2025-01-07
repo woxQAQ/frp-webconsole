@@ -28,7 +28,7 @@ func UsageCommands() string {
 
 // UsageExamples produces an example of a valid invocation of the CLI tool.
 func UsageExamples() string {
-	return os.Args[0] + ` frpc list-frp-release --os "Quia amet aut non eos quo." --arch "Qui quis sit aut tenetur voluptas ea."` + "\n" +
+	return os.Args[0] + ` frpc list-frp-release --os "Aut qui quis sit aut tenetur." --arch "Ea libero non occaecati facere."` + "\n" +
 		""
 }
 
@@ -147,6 +147,6 @@ ListFrpRelease implements ListFrpRelease.
     -arch STRING: 
 
 Example:
-    %[1]s frpc list-frp-release --os "Quia amet aut non eos quo." --arch "Qui quis sit aut tenetur voluptas ea."
+    %[1]s frpc list-frp-release --os "Aut qui quis sit aut tenetur." --arch "Ea libero non occaecati facere."
 `, os.Args[0])
 }

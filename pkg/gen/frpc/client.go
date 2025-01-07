@@ -26,11 +26,11 @@ func NewClient(listFrpRelease goa.Endpoint) *Client {
 }
 
 // ListFrpRelease calls the "ListFrpRelease" endpoint of the "frpc" service.
-func (c *Client) ListFrpRelease(ctx context.Context, p *ListFrpReleasePayload) (res *FrpRelease, err error) {
+func (c *Client) ListFrpRelease(ctx context.Context, p *ListFrpReleasePayload) (res []*FrpRelease, err error) {
 	var ires any
 	ires, err = c.ListFrpReleaseEndpoint(ctx, p)
 	if err != nil {
 		return
 	}
-	return ires.(*FrpRelease), nil
+	return ires.([]*FrpRelease), nil
 }

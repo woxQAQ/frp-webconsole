@@ -14,7 +14,7 @@ import (
 // FRP Webconsole
 type Service interface {
 	// ListFrpRelease implements ListFrpRelease.
-	ListFrpRelease(context.Context, *ListFrpReleasePayload) (res *FrpRelease, err error)
+	ListFrpRelease(context.Context, *ListFrpReleasePayload) (res []*FrpRelease, err error)
 }
 
 // APIName is the name of the API as defined in the design.
@@ -45,14 +45,12 @@ type FrpAsset struct {
 	Downloads *int
 }
 
-// FrpRelease is the result type of the frpc service ListFrpRelease method.
+// A bottle of wine
 type FrpRelease struct {
 	// Tag name of release
 	TagName *string
-	// Size of release
-	Size *int
 	// Assets of release
-	Assets *FrpAsset
+	Assets []*FrpAsset
 	// Created at
 	CreatedAt *string
 }

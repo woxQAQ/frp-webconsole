@@ -7,13 +7,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/google/go-github/v68/github"
-	"github.com/woxQAQ/frp-webconsole/pkg/gen/frpc"
-	frpcSvc "github.com/woxQAQ/frp-webconsole/pkg/gen/http/frpc/server"
+	"github.com/woxQAQ/frp-webconsole/pkg/controllers"
 	"github.com/woxQAQ/frp-webconsole/pkg/log"
-	"github.com/woxQAQ/frp-webconsole/pkg/services"
-	"github.com/woxQAQ/frp-webconsole/pkg/stores"
-	goahttp "goa.design/goa/v3/http"
 
 	"go.uber.org/zap"
 )
@@ -25,20 +20,7 @@ func main() {
 	logger := log.Logger()
 	logger.Info("Starting server")
 
-	frpcService := services.NewFrpcService(stores.NewGithubClient(github.NewClient(nil)))
-	endpoints := frpc.NewEndpoints(frpcService)
-	mux := goahttp.NewMuxer()
-	var (
-		dec = goahttp.RequestDecoder
-		enc = goahttp.ResponseEncoder
-	)
-	frpcsvc := frpcSvc.New(endpoints, mux, dec, enc, nil, nil)
-	frpcsvc.Use(func(h http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		})
-	})
-	frpcSvc.Mount(mux, frpcsvc)
-
+	mux := controllers.NewMux(ctx)
 	srv := &http.Server{
 		Addr:    ":8080",
 		Handler: mux,

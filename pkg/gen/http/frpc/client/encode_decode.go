@@ -16,6 +16,7 @@ import (
 
 	frpc "github.com/woxQAQ/frp-webconsole/pkg/gen/frpc"
 	goahttp "goa.design/goa/v3/http"
+	goa "goa.design/goa/v3/pkg"
 )
 
 // BuildListFrpReleaseRequest instantiates a HTTP request object with method
@@ -80,11 +81,17 @@ func DecodeListFrpReleaseResponse(decoder func(*http.Response) goahttp.Decoder, 
 			if err != nil {
 				return nil, goahttp.ErrDecodingError("frpc", "ListFrpRelease", err)
 			}
-			err = ValidateListFrpReleaseResponseBody(&body)
+			for _, e := range body {
+				if e != nil {
+					if err2 := ValidateFrpReleaseResponse(e); err2 != nil {
+						err = goa.MergeErrors(err, err2)
+					}
+				}
+			}
 			if err != nil {
 				return nil, goahttp.ErrValidationError("frpc", "ListFrpRelease", err)
 			}
-			res := NewListFrpReleaseFrpReleaseOK(&body)
+			res := NewListFrpReleaseFrpReleaseOK(body)
 			return res, nil
 		default:
 			body, _ := io.ReadAll(resp.Body)
@@ -93,9 +100,26 @@ func DecodeListFrpReleaseResponse(decoder func(*http.Response) goahttp.Decoder, 
 	}
 }
 
-// unmarshalFrpAssetResponseBodyToFrpcFrpAsset builds a value of type
-// *frpc.FrpAsset from a value of type *FrpAssetResponseBody.
-func unmarshalFrpAssetResponseBodyToFrpcFrpAsset(v *FrpAssetResponseBody) *frpc.FrpAsset {
+// unmarshalFrpReleaseResponseToFrpcFrpRelease builds a value of type
+// *frpc.FrpRelease from a value of type *FrpReleaseResponse.
+func unmarshalFrpReleaseResponseToFrpcFrpRelease(v *FrpReleaseResponse) *frpc.FrpRelease {
+	res := &frpc.FrpRelease{
+		TagName:   v.TagName,
+		CreatedAt: v.CreatedAt,
+	}
+	if v.Assets != nil {
+		res.Assets = make([]*frpc.FrpAsset, len(v.Assets))
+		for i, val := range v.Assets {
+			res.Assets[i] = unmarshalFrpAssetResponseToFrpcFrpAsset(val)
+		}
+	}
+
+	return res
+}
+
+// unmarshalFrpAssetResponseToFrpcFrpAsset builds a value of type
+// *frpc.FrpAsset from a value of type *FrpAssetResponse.
+func unmarshalFrpAssetResponseToFrpcFrpAsset(v *FrpAssetResponse) *frpc.FrpAsset {
 	if v == nil {
 		return nil
 	}

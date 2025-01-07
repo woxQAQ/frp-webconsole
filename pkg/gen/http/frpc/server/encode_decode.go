@@ -19,7 +19,7 @@ import (
 // the frpc ListFrpRelease endpoint.
 func EncodeListFrpReleaseResponse(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder) func(context.Context, http.ResponseWriter, any) error {
 	return func(ctx context.Context, w http.ResponseWriter, v any) error {
-		res, _ := v.(*frpc.FrpRelease)
+		res, _ := v.([]*frpc.FrpRelease)
 		enc := encoder(ctx, w)
 		body := NewListFrpReleaseResponseBody(res)
 		w.WriteHeader(http.StatusOK)
@@ -50,13 +50,30 @@ func DecodeListFrpReleaseRequest(mux goahttp.Muxer, decoder func(*http.Request) 
 	}
 }
 
-// marshalFrpcFrpAssetToFrpAssetResponseBody builds a value of type
-// *FrpAssetResponseBody from a value of type *frpc.FrpAsset.
-func marshalFrpcFrpAssetToFrpAssetResponseBody(v *frpc.FrpAsset) *FrpAssetResponseBody {
+// marshalFrpcFrpReleaseToFrpReleaseResponse builds a value of type
+// *FrpReleaseResponse from a value of type *frpc.FrpRelease.
+func marshalFrpcFrpReleaseToFrpReleaseResponse(v *frpc.FrpRelease) *FrpReleaseResponse {
+	res := &FrpReleaseResponse{
+		TagName:   v.TagName,
+		CreatedAt: v.CreatedAt,
+	}
+	if v.Assets != nil {
+		res.Assets = make([]*FrpAssetResponse, len(v.Assets))
+		for i, val := range v.Assets {
+			res.Assets[i] = marshalFrpcFrpAssetToFrpAssetResponse(val)
+		}
+	}
+
+	return res
+}
+
+// marshalFrpcFrpAssetToFrpAssetResponse builds a value of type
+// *FrpAssetResponse from a value of type *frpc.FrpAsset.
+func marshalFrpcFrpAssetToFrpAssetResponse(v *frpc.FrpAsset) *FrpAssetResponse {
 	if v == nil {
 		return nil
 	}
-	res := &FrpAssetResponseBody{
+	res := &FrpAssetResponse{
 		Name:        v.Name,
 		DownloadURL: v.DownloadURL,
 		Size:        v.Size,

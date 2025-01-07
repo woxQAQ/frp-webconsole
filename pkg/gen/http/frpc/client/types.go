@@ -14,19 +14,20 @@ import (
 
 // ListFrpReleaseResponseBody is the type of the "frpc" service
 // "ListFrpRelease" endpoint HTTP response body.
-type ListFrpReleaseResponseBody struct {
+type ListFrpReleaseResponseBody []*FrpReleaseResponse
+
+// FrpReleaseResponse is used to define fields on response body types.
+type FrpReleaseResponse struct {
 	// Tag name of release
 	TagName *string `form:"tag_name,omitempty" json:"tag_name,omitempty" xml:"tag_name,omitempty"`
-	// Size of release
-	Size *int `form:"size,omitempty" json:"size,omitempty" xml:"size,omitempty"`
 	// Assets of release
-	Assets *FrpAssetResponseBody `form:"assets,omitempty" json:"assets,omitempty" xml:"assets,omitempty"`
+	Assets []*FrpAssetResponse `form:"assets,omitempty" json:"assets,omitempty" xml:"assets,omitempty"`
 	// Created at
 	CreatedAt *string `form:"created_at,omitempty" json:"created_at,omitempty" xml:"created_at,omitempty"`
 }
 
-// FrpAssetResponseBody is used to define fields on response body types.
-type FrpAssetResponseBody struct {
+// FrpAssetResponse is used to define fields on response body types.
+type FrpAssetResponse struct {
 	// Name of asset
 	Name *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 	// Download URL of asset
@@ -39,22 +40,17 @@ type FrpAssetResponseBody struct {
 
 // NewListFrpReleaseFrpReleaseOK builds a "frpc" service "ListFrpRelease"
 // endpoint result from a HTTP "OK" response.
-func NewListFrpReleaseFrpReleaseOK(body *ListFrpReleaseResponseBody) *frpc.FrpRelease {
-	v := &frpc.FrpRelease{
-		TagName:   body.TagName,
-		Size:      body.Size,
-		CreatedAt: body.CreatedAt,
-	}
-	if body.Assets != nil {
-		v.Assets = unmarshalFrpAssetResponseBodyToFrpcFrpAsset(body.Assets)
+func NewListFrpReleaseFrpReleaseOK(body []*FrpReleaseResponse) []*frpc.FrpRelease {
+	v := make([]*frpc.FrpRelease, len(body))
+	for i, val := range body {
+		v[i] = unmarshalFrpReleaseResponseToFrpcFrpRelease(val)
 	}
 
 	return v
 }
 
-// ValidateListFrpReleaseResponseBody runs the validations defined on
-// ListFrpReleaseResponseBody
-func ValidateListFrpReleaseResponseBody(body *ListFrpReleaseResponseBody) (err error) {
+// ValidateFrpReleaseResponse runs the validations defined on FrpReleaseResponse
+func ValidateFrpReleaseResponse(body *FrpReleaseResponse) (err error) {
 	if body.CreatedAt != nil {
 		err = goa.MergeErrors(err, goa.ValidateFormat("body.created_at", *body.CreatedAt, goa.FormatDateTime))
 	}

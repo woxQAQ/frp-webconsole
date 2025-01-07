@@ -1,18 +1,9 @@
 API_DIR = api
 
-.PHONY: swag
-swag:
-	@type -p swag || go install github.com/swaggo/swag/cmd/swag@latest
-
-.PHONY: api
-api: swag
-	swag init -g ${API_DIR}/meta.go -o ${API_DIR}
-	swag fmt
 .PHONY: fmt
 fmt:
 	go fmt ./...
 	go vet ./...
-	swag fmt
 
 .PHONY: module
 module:
@@ -22,3 +13,7 @@ module:
 .PHONY: run
 run: fmt
 	go run cmd/main.go
+
+.PHONY: gen
+gen: 
+	goa gen github.com/woxQAQ/frp-webconsole/api -o pkg

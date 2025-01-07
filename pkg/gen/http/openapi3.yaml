@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+    title: FRP Webconsole
+    description: FRP Webconsole
+    license:
+        name: ""
+        url: https://github.com/woxQAQ/frp-webconsole/blob/main/LICENSE
+    version: 1.0.0
+servers:
+    - url: http://localhost:8080
+paths:
+    /api/v1/frp/release:
+        get:
+            tags:
+                - frpc
+            summary: ListFrpRelease frpc
+            operationId: frpc#ListFrpRelease
+            parameters:
+                - name: os
+                  in: query
+                  description: OS
+                  allowEmptyValue: true
+                  schema:
+                    type: string
+                    description: OS
+                    example: Aliquid animi id repellat.
+                  example: Vel itaque magnam ut.
+                - name: arch
+                  in: query
+                  description: Architecture
+                  allowEmptyValue: true
+                  schema:
+                    type: string
+                    description: Architecture
+                    example: Qui explicabo illo odio voluptates molestiae.
+                  example: Deleniti eum.
+            responses:
+                "200":
+                    description: OK response.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FrpRelease'
+                            example:
+                                assets:
+                                    download_url: Dolorem aut aspernatur.
+                                    downloads: 972333842232694562
+                                    name: Non occaecati facere fugit qui enim.
+                                    size: 6647636507034451376
+                                created_at: "1971-02-16T23:50:01Z"
+                                size: 7611772498325649021
+                                tag_name: Dolorem mollitia aut eaque molestiae provident aliquid.
+components:
+    schemas:
+        FrpAsset:
+            type: object
+            properties:
+                download_url:
+                    type: string
+                    description: Download URL of asset
+                    example: Eum magnam voluptas hic ipsum.
+                downloads:
+                    type: integer
+                    description: Downloads of asset
+                    example: 9117719764608767615
+                    format: int64
+                name:
+                    type: string
+                    description: Name of asset
+                    example: Dolor maiores.
+                size:
+                    type: integer
+                    description: Size of asset
+                    example: 7775041397615832255
+                    format: int64
+            description: A bottle of wine
+            example:
+                download_url: Odit quo.
+                downloads: 488818421683686422
+                name: Sequi aspernatur.
+                size: 5010214001184246337
+        FrpRelease:
+            type: object
+            properties:
+                assets:
+                    $ref: '#/components/schemas/FrpAsset'
+                created_at:
+                    type: string
+                    description: Created at
+                    example: "1984-02-29T11:52:49Z"
+                    format: date-time
+                size:
+                    type: integer
+                    description: Size of release
+                    example: 9065662459211588671
+                    format: int64
+                tag_name:
+                    type: string
+                    description: Tag name of release
+                    example: Voluptatem consectetur.
+            description: A bottle of wine
+            example:
+                assets:
+                    download_url: Voluptas dolorem veniam ex.
+                    downloads: 4567464066128915160
+                    name: Facere amet voluptate ea.
+                    size: 6112617211418139169
+                created_at: "1996-04-26T15:52:28Z"
+                size: 9049276949846730829
+                tag_name: Officiis fugit.
+tags:
+    - name: frpc
+      description: FRP Webconsole

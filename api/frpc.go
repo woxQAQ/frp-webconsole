@@ -46,4 +46,5 @@ var _ = Service("frpc", func() {
 			GET("/frp/release")
 		})
 	})
+
 })

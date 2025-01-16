@@ -5,7 +5,6 @@ import (
 
 	"github.com/google/go-github/v68/github"
 	"github.com/woxQAQ/frp-webconsole/pkg/gen/frpc"
-	"github.com/woxQAQ/frp-webconsole/pkg/middleware"
 	"github.com/woxQAQ/frp-webconsole/pkg/stores"
 
 	frpcSvc "github.com/woxQAQ/frp-webconsole/pkg/gen/http/frpc/server"
@@ -19,7 +18,7 @@ func NewMux(ctx context.Context) goahttp.Muxer {
 		enc = goahttp.ResponseEncoder
 	)
 	mux := goahttp.NewMuxer()
-	mux.Use(middleware.Logger())
+	// mux.Use(middleware.Logger())
 	// stores declaration
 	ghClient := github.NewClient(nil)
 	ghStore := stores.NewGithubClient(ghClient)

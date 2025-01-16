@@ -21,6 +21,10 @@ func main() {
 	logger.Info("Starting server")
 
 	mux := controllers.NewMux(ctx)
+	swagger := controllers.SwaggerHandler()
+	mux.Handle("GET", "/docs", func(w http.ResponseWriter, r *http.Request) {
+		swagger.ServeHTTP(w, r)
+	})
 	srv := &http.Server{
 		Addr:    ":8080",
 		Handler: mux,

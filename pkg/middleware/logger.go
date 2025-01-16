@@ -2,16 +2,40 @@ package middleware
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/woxQAQ/frp-webconsole/pkg/log"
-	"goa.design/goa/v3/middleware"
+	"go.uber.org/zap"
 )
 
+// 添加一个响应写入器的包装器
+type responseWriter struct {
+	http.ResponseWriter
+	statusCode int
+}
+
+func newResponseWriter(w http.ResponseWriter) *responseWriter {
+	return &responseWriter{w, http.StatusOK}
+}
+
+func (rw *responseWriter) WriteHeader(code int) {
+	rw.statusCode = code
+	rw.ResponseWriter.WriteHeader(code)
+}
+
 func Logger() func(http.Handler) http.Handler {
-	logger := middleware.NewLogger(log.NewStdLogger())
 	return func(h http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			logger.Log(logger, r, w, h)
+			startTime := time.Now()
+			h.ServeHTTP(w, r)
+			wrapped := newResponseWriter(w)
+			duration := time.Since(startTime)
+			log.Logger().Info("request",
+				zap.String("method", r.Method),
+				zap.String("url", r.URL.String()),
+				zap.Duration("duration", duration),
+				zap.Int("status", wrapped.statusCode),
+			)
 		})
 	}
 }

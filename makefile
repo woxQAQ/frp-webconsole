@@ -16,4 +16,5 @@ run: fmt
 
 .PHONY: gen
 gen: 
-	goa gen github.com/woxQAQ/frp-webconsole/api -o pkg
+	goa gen github.com/woxQAQ/frp-webconsole/api 
+	goa example github.com/woxQAQ/frp-webconsole/api -o example PACKAGE=github.com/woxQAQ/frp-webconsole/pkg/gen

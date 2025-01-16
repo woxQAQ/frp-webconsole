@@ -2,6 +2,7 @@ package api
 
 import (
 	. "goa.design/goa/v3/dsl"
+	_ "goa.design/plugins/v3/zaplogger"
 )
 
 var _ = API("frp-webconsole", func() {

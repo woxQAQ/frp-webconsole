@@ -3,6 +3,7 @@ API_DIR = api
 .PHONY: api
 api:
 	swag init -g ${API_DIR}/meta.go -o ${API_DIR}
+	swag fmt
 
 .PHONY: fmt
 fmt:

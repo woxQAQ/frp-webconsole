@@ -1,4 +1,13 @@
 basePath: /api/v1
+definitions:
+  models.System:
+    description: the system info
+    properties:
+      arch:
+        type: string
+      os:
+        type: string
+    type: object
 externalDocs:
   description: OpenAPI
   url: https://swagger.io/resources/open-api/
@@ -40,6 +49,34 @@ paths:
         "200":
           description: OK
       summary: Install Frpc
+      tags:
+      - frp
+  /frp/release:
+    get:
+      consumes:
+      - application/json
+      description: List Frp Release
+      parameters:
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: pageSize
+        in: query
+        name: pageSize
+        type: integer
+      - description: SystemInfo
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.System'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: List Frp Release
       tags:
       - frp
 securityDefinitions:

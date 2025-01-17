@@ -63,6 +63,63 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/frp/release": {
+            "get": {
+                "description": "List Frp Release",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "frp"
+                ],
+                "summary": "List Frp Release",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pageSize",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "description": "SystemInfo",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.System"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.System": {
+            "description": "the system info",
+            "type": "object",
+            "properties": {
+                "arch": {
+                    "type": "string"
+                },
+                "os": {
+                    "type": "string"
+                }
+            }
         }
     },
     "securityDefinitions": {

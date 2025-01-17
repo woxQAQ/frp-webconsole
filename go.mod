@@ -3,30 +3,35 @@ module github.com/woxQAQ/frp-webconsole
 go 1.23.3
 
 require (
-	github.com/go-openapi/loads v0.22.0
-	github.com/go-openapi/runtime v0.28.0
+	github.com/fatedier/frp v0.61.1
+	github.com/gin-gonic/gin v1.10.0
 	github.com/google/go-github/v68 v68.0.0
-	github.com/gorilla/handlers v1.5.2
-	github.com/samber/lo v1.47.0
+	github.com/swaggo/files v1.0.1
+	github.com/swaggo/gin-swagger v1.6.0
+	github.com/swaggo/swag v1.16.4
 	go.uber.org/zap v1.27.0
 	goa.design/goa/v3 v3.19.1
 	goa.design/plugins/v3 v3.19.1
 )
 
 require (
-	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
-	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/dimfeld/httppath v0.0.0-20170720192232-ee938bf73598 // indirect
-	github.com/felixge/httpsnoop v1.0.4 // indirect
-	github.com/go-chi/chi/v5 v5.2.0 // indirect
-	github.com/go-openapi/analysis v0.23.0 // indirect
-	github.com/go-openapi/errors v0.22.0 // indirect
+	github.com/KyleBanks/depth v1.2.1 // indirect
+	github.com/bytedance/sonic v1.12.6 // indirect
+	github.com/bytedance/sonic/loader v0.2.1 // indirect
+	github.com/cloudwego/base64x v0.1.4 // indirect
+	github.com/cloudwego/iasm v0.2.0 // indirect
+	github.com/fatedier/golib v0.5.0 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.7 // indirect
+	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
 	github.com/go-openapi/jsonreference v0.21.0 // indirect
 	github.com/go-openapi/spec v0.21.0 // indirect
 	github.com/go-openapi/strfmt v0.23.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
-	github.com/go-openapi/validate v0.24.0 // indirect
+	github.com/go-playground/locales v0.14.1 // indirect
+	github.com/go-playground/universal-translator v0.18.1 // indirect
+	github.com/go-playground/validator/v10 v10.23.0 // indirect
+	github.com/goccy/go-json v0.10.4 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect

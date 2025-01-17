@@ -14,7 +14,7 @@ module:
 run: fmt
 	go run cmd/main.go
 
-.PHONY: gen
-gen: 
-	goa gen github.com/woxQAQ/frp-webconsole/api 
-	goa example github.com/woxQAQ/frp-webconsole/api -o example PACKAGE=github.com/woxQAQ/frp-webconsole/pkg/gen
+.PHONY: module
+module: fmt
+	go mod tidy
+	go vet ./...

@@ -10,8 +10,8 @@ info:
     url: http://www.swagger.io/support
   description: This is a sample server celler server.
   license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    name: MIT
+    url: https://github.com/go-frp/frp-manager/blob/main/LICENSE
   termsOfService: http://swagger.io/terms/
   title: Swagger Example API
   version: "1.0"

@@ -1,70 +1,75 @@
 package middleware
 
 import (
-	"net"
 	"net/http"
-	"net/http/httputil"
-	"os"
-	"runtime/debug"
-	"strings"
 	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/woxQAQ/frp-webconsole/pkg/log"
 	"go.uber.org/zap"
 )
 
-func Logger(log *zap.Logger) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		start := time.Now()
-		path := c.Request.URL.Path
-		raw := c.Request.URL.RawQuery
-		method := c.Request.Method
-		handler := c.HandlerName()
-		c.Next()
-		cost := time.Since(start)
-		log.Info("gin request",
-			zap.String("method", method),
-			zap.String("path", path),
-			zap.String("query", raw),
-			zap.Int("status", c.Writer.Status()),
-			zap.String("ip", c.ClientIP()),
-			zap.String("user-agent", c.Request.UserAgent()),
-			zap.Duration("cost", cost),
-			zap.String("handler", handler),
-		)
+// 添加一个响应写入器的包装器
+type responseWriter struct {
+	http.ResponseWriter
+	statusCode int
+}
+
+func newResponseWriter(w http.ResponseWriter) *responseWriter {
+	return &responseWriter{w, http.StatusOK}
+}
+
+func (rw *responseWriter) WriteHeader(code int) {
+	rw.statusCode = code
+	rw.ResponseWriter.WriteHeader(code)
+}
+
+func Logger() func(http.Handler) http.Handler {
+	return func(h http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			startTime := time.Now()
+			h.ServeHTTP(w, r)
+			wrapped := newResponseWriter(w)
+			duration := time.Since(startTime)
+			log.Logger().Info("request",
+				zap.String("method", r.Method),
+				zap.String("url", r.URL.String()),
+				zap.Duration("duration", duration),
+				zap.Int("status", wrapped.statusCode),
+			)
+		})
 	}
 }
 
-func Recovery(log *zap.Logger) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		defer func() {
-			if err := recover(); err != nil {
-				var brokenPipe bool
-				if ne, ok := err.(*net.OpError); ok {
-					if se, ok := ne.Err.(*os.SyscallError); ok {
-						if strings.Contains(strings.ToLower(se.Error()), "broken pipe") || strings.Contains(strings.ToLower(se.Error()), "connection reset by peer") {
-							brokenPipe = true
-						}
-					}
-				}
-				httpRequest, _ := httputil.DumpRequest(c.Request, false)
-				if brokenPipe {
-					log.Error("gin panic",
-						zap.Any("error", err),
-						zap.String("request", string(httpRequest)),
-					)
-					c.Error(err.(error))
-					c.Abort()
-					return
-				}
-				log.Error("gin panic",
-					zap.Any("error", err),
-					zap.String("request", string(httpRequest)),
-					zap.String("stack", string(debug.Stack())),
-				)
-				c.AbortWithError(http.StatusInternalServerError, err.(error))
-			}
-		}()
-		c.Next()
-	}
-}
+// func Recovery(log *zap.Logger) gin.HandlerFunc {
+// 	return func(c *gin.Context) {
+// 		defer func() {
+// 			if err := recover(); err != nil {
+// 				var brokenPipe bool
+// 				if ne, ok := err.(*net.OpError); ok {
+// 					if se, ok := ne.Err.(*os.SyscallError); ok {
+// 						if strings.Contains(strings.ToLower(se.Error()), "broken pipe") || strings.Contains(strings.ToLower(se.Error()), "connection reset by peer") {
+// 							brokenPipe = true
+// 						}
+// 					}
+// 				}
+// 				httpRequest, _ := httputil.DumpRequest(c.Request, false)
+// 				if brokenPipe {
+// 					log.Error("gin panic",
+// 						zap.Any("error", err),
+// 						zap.String("request", string(httpRequest)),
+// 					)
+// 					c.Error(err.(error))
+// 					c.Abort()
+// 					return
+// 				}
+// 				log.Error("gin panic",
+// 					zap.Any("error", err),
+// 					zap.String("request", string(httpRequest)),
+// 					zap.String("stack", string(debug.Stack())),
+// 				)
+// 				c.AbortWithError(http.StatusInternalServerError, err.(error))
+// 			}
+// 		}()
+// 		c.Next()
+// 	}
+// }

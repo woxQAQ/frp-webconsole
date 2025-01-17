@@ -12,3 +12,8 @@ fmt:
 .PHONY: run
 run: fmt
 	go run cmd/main.go
+
+.PHONY: module
+module: fmt
+	go mod tidy
+	go vet ./...

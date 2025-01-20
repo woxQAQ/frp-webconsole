@@ -1,23 +1,23 @@
 package router
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/go-fuego/fuego"
 )
 
 type Router struct {
-	engine *gin.Engine
+	svc *fuego.Server
 }
 
-func NewRouter(engine *gin.Engine) *Router {
-	return &Router{engine: engine}
+func NewRouter(svc *fuego.Server) *Router {
+	return &Router{svc: svc}
 }
 
 type Controller interface {
-	Register(engine *gin.Engine)
+	Register(svc *fuego.Server)
 }
 
 func (r *Router) Register(controllers ...Controller) {
 	for _, controller := range controllers {
-		controller.Register(r.engine)
+		controller.Register(r.svc)
 	}
 }
